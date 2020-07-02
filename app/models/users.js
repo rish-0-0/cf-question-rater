@@ -15,9 +15,6 @@ const UserRatedQuestions = new Schema({
 
 const Users = new Schema(
   {
-    name: {
-      type: String,
-    },
     username: {
       type: String,
     },
