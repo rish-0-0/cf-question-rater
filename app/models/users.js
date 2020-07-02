@@ -6,11 +6,10 @@ const UserRatedQuestions = new Schema({
   rating: {
     type: Number,
   },
-  urls: [
-    {
-      type: String,
-    },
-  ],
+  cf_id: {
+    type: String,
+    unique: true,
+  },
 });
 
 const Users = new Schema(
