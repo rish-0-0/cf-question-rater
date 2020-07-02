@@ -22,8 +22,6 @@ const Questions = new Schema({
     type: [RatedBySchema],
     default: []
   },
-  median: Number,
-  mode: Number,
 }, { timestamps: true });
 
 module.exports = mongoose.model('Questions', Questions);
