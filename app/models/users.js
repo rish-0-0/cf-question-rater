@@ -5,9 +5,11 @@ const Schema = mongoose.Schema;
 const UserRatedQuestions = new Schema({
   rating: {
     type: Number,
+    required: true,
   },
   cf_id: {
     type: String,
+    required: true,
     unique: true,
   },
 });
@@ -16,6 +18,8 @@ const Users = new Schema(
   {
     username: {
       type: String,
+      required: true,
+      unique: true,
     },
     ranking: {
       type: Number,

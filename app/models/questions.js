@@ -6,15 +6,18 @@ const Schema = mongoose.Schema;
 const RatedBySchema = new Schema({
   username: {
     type: String,
+    required: true,
   },
   rating: {
-    type: Number
+    type: Number,
+    required: true,
   },
 });
 
 const Questions = new Schema({
   cf_id: {
     type: String,
+    required: true,
     unique: true,
   },
   mean: Number,
