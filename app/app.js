@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const router = require('./routes/index.routes');
+const { statusResponse } = require('./utils/responses');
 const PORT = process.env.PORT || 4099;
 
 const app = express();
@@ -12,6 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 connect();
+
+app.use('/api/v1', router);
+
+app.use(function (_, res) {
+  return statusResponse(res, 404, false, {message: 'Endpoint Not Found'});
+});
+
+// Mongoose uptime is very huge, so need to write retry logic for docker container
 
 function connect() {
   mongoose.connection
